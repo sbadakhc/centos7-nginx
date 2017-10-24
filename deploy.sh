@@ -30,8 +30,9 @@ REGISTRY="registry.${DOMAIN}:443"
 read -d '' USAGE << EOF
 Usage: ./deploy.sh [option] <arg>
 
-Example: ./deploy.sh -l <label> -p <openshift project> -i <docker image> -t <docker tag> -r <docker registry>
-Working example: ./deploy.sh -l xxx -p centos7-nginx-dev -i centos7-nginx -t latest -r registry.example.com:443
+Example: ./deploy.sh -p <openshift project> -i <docker image> -t <docker tag> -r <docker registry>
+Working example: ./deploy.sh -p uid-centos7-nginx-env -i centos7-nginx -t latest -r registry.example.com:443
+
 EOF
 
 while getopts :l:p:i:t:r:h OPTS; do
