@@ -31,4 +31,3 @@ The command line is as follows. Replace the uid and env in the project name with
 ```
 
 Once the  build and deployment is finished you can browse to your deployment via the Openshift console or by simply browing to https://uid-centos7-nginx-env.example.com and remembering to replace the uid with a unique identifier such as your initals and the env with the corresponding envronment you are building. This is important as project names have to be unique on the platform. 
-
