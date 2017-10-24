@@ -31,6 +31,3 @@ The command line is as follows. Replace the xxx in the project name with your in
 ```
 
 Once the  build and deployment is finished you can browse to your deployment via the Openshift console or by simply browing to https://xxx-centos7-nginx-dev.example.com and remembering to replace the xxx with your the initials you used in the previous command invocation.
-
---
-1
