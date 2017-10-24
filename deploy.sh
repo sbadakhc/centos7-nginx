@@ -85,7 +85,7 @@ oc create service nodeport ${IMAGE} --tcp=443:8080
 oc create route edge --hostname=${PROJECT}.${DOMAIN} --service=${IMAGE} --port=8080 --insecure-policy=Redirect
 }
 
-if [[ $# != 10 ]]; then echo "${USAGE}" && exit; fi
+if [[ $# != 8 ]]; then echo "${USAGE}" && exit; fi
 while [[ $# > 0 ]]; do OPTS="$1"; shift
 done
 
