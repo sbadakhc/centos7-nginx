@@ -1,7 +1,7 @@
 Centos7 Nginx Container
 ====================================
 
-The Bring Your Own Container deployment pattern provides developers with a generic script they can use to build and deploy containers to the Bluebank Openshift Container Platform. 
+The Bring Your Own Container deployment pattern provides developers with a generic script they can use to build and deploy containers to the Openshift Container Platform. 
 
 Instructions
 ------------
