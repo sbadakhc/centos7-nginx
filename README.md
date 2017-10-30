@@ -1,12 +1,12 @@
 Centos7 Nginx Container
 ====================================
 
-The Bring Your Own Container deployment pattern provides developers with a generic script they can use to build and deploy containers to the Openshift Container Platform. 
+This is an Nginx container based on the upstream CentOS 7 minimal images. It uses a deploy script which implemets the "Bring Your Own Container" deployment pattern which provides developers with a generic script they can use to build and deploy containers to the Openshift Container Platform. 
 
 Instructions
 ------------
 
-Clone the BYOC git repository to your workstation
+Clone the repository to your workstation
 ```
 git clone https://gitlab.example.com/sbadakhc/centos7-nginx.git
 ```
