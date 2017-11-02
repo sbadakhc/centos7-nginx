@@ -79,8 +79,7 @@ oc new-project ${PROJECT} > /dev/null 2>&1
 docker login --username=$(oc whoami) --password=$(oc whoami -t) ${REGISTRY}
 docker build -t ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG} .
 docker push ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
-oc new-app ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
-#oc new-app ${IMAGE}:${TAG}
+oc new-app ${IMAGE}:${TAG}
 oc delete service ${IMAGE}
 oc create service nodeport ${IMAGE} --tcp=443:8080
 oc create route edge --hostname=${PROJECT}.${DOMAIN} --service=${IMAGE} --port=8080 --insecure-policy=Redirect
