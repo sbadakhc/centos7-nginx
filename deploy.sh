@@ -65,21 +65,21 @@ done
 deploy() {
 PROJECTS="$(oc get projects)"
 for project in $PROJECTS; do
-	if [ "$project" == "${PROJECT}" ]; then
-	oc delete project ${PROJECT} > /dev/null 2>&1
-		until oc new-project ${PROJECT} > /dev/null 2>&1; do
-			echo -e "Trying to reprovison project...Please be patient!"
-			sleep 10
-		done
+    if [ "$project" == "${PROJECT}" ]; then
+        oc delete project ${PROJECT} > /dev/null 2>&1
+        until oc new-project ${PROJECT} > /dev/null 2>&1; do
+            echo -e "Trying to reprovison project...Please be patient!"
+        sleep 10
+        done
 
-	fi
+    fi
 done 
 
 oc new-project ${PROJECT} > /dev/null 2>&1
 docker login --username=$(oc whoami) --password=$(oc whoami -t) ${REGISTRY}
 docker build -t ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG} .
 docker push ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
-oc new-app ${IMAGE}:${TAG}
+oc new-app ${IMAGE}:${TAG} -insecure-registry=true # --loglevel=8
 oc delete service ${IMAGE}
 oc create service nodeport ${IMAGE} --tcp=443:8080
 oc create route edge --hostname=${PROJECT}.${DOMAIN} --service=${IMAGE} --port=8080 --insecure-policy=Redirect
