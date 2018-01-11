@@ -30,7 +30,7 @@ read -d '' USAGE << EOF
 Usage: ./deploy.sh [option] <arg>
 
 Example: ./deploy.sh -p <openshift project> -i <docker image> -t <docker tag> -r <docker registry>
-Working example: ./deploy.sh -p uid-centos7-nginx-env -i centos7-nginx -t latest -r docker-registry-default.bluebank.io:443
+Working example: ./deploy.sh -p uid-centos7-nginx-env -i centos7-nginx -t latest -r registry.example.com:443
 EOF
 
 while getopts :p:i:t:r:h OPTS; do

@@ -6,7 +6,7 @@ The docker Centos Nginx container utilises the Bring Your Own Container deployme
 Instructions
 ------------
 
-Clone the BYOC git repository to your workstation
+Clone the git repository to your workstation
 ```
 git clone https://github.com/sbadakhc/centos7-nginx.git
 ```
