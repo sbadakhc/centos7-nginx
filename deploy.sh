@@ -22,8 +22,8 @@
 PROJECT="${1}"    # Prefix the project name with the user defined label
 IMAGE="${2}"                
 TAG="${3}"                 
-DOMAIN="bluebank.io"
-REGISTRY="docker-registry-default.${DOMAIN}:443"
+DOMAIN="example.com"
+REGISTRY="registry.${DOMAIN}:443"
 
 # Usage options and user arguments
 read -d '' USAGE << EOF
@@ -74,8 +74,8 @@ oc new-project ${PROJECT} > /dev/null 2>&1
 docker login --username=$(oc whoami) --password=$(oc whoami -t) ${REGISTRY}
 docker build -t ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG} .
 docker push ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
-oc new-app ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG} # Including this line as its needed is your pushing an image that does not exist in the local registry.
-#oc new-app ${IMAGE}:${TAG}
+#oc new-app ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG} # Including this line as its needed is your pushing an image that does not exist in the local registry.
+oc new-app ${IMAGE}:${TAG} --insecure-registry=true
 oc delete service ${IMAGE}
 oc create service nodeport ${IMAGE} --tcp=443:8080
 oc create route edge --hostname=${PROJECT}.${DOMAIN} --service=${IMAGE} --port=8080 --insecure-policy=Redirect
